@@ -5,6 +5,7 @@ import Category from "../Category/Category";
 import Featured from "../Featured/Featured";
 import FoodCards from "../FoodCards/FoodCards";
 import Manubanner from "../ManuBanner/Manubanner";
+import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <ContactUs></ContactUs>
             <FoodCards></FoodCards>
             <Featured></Featured>
+            <Testimonials></Testimonials>
         </div>
     );
 };
