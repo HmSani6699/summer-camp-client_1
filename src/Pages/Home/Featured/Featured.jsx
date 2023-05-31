@@ -10,9 +10,10 @@ const Featured = () => {
             <SectionTitle
                 hedding={'Featured manu'}
                 subHadding={'---Check it out---'}
+                color={'featured'}
             ></SectionTitle>
 
-            <div className=' flex px-24 pb-20 pt-12  gap-4 items-center justify-center '>
+            <div className=' lg:flex px-24 pb-20 pt-12  gap-4 items-center justify-center '>
                 <div>
                     <img src={featuredImg} alt="" />
                 </div>
