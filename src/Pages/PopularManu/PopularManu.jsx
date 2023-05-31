@@ -14,7 +14,6 @@ const PopularManu = () => {
             })
     }, []);
 
-    console.log(manu);
 
     return (
         <section>
@@ -22,9 +21,9 @@ const PopularManu = () => {
                 hedding={'FROM OUR MENU'}
                 subHadding={'---Popular items---'}
             ></SectionTitle>
-            <div>
+            <div className="mt-12 mb-12 grid md:grid-cols-2 gap-8">
                 {
-                    manu.map(item=><ManuItem
+                    manu?.map(item=><ManuItem
                     key={item._id}
                     item={item}
                     ></ManuItem>)
