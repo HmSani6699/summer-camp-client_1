@@ -1,3 +1,4 @@
+import ContactUs from "../../../component/ContactUs/ContactUs";
 import PopularManu from "../../PopularManu/PopularManu";
 import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
@@ -10,6 +11,7 @@ const Home = () => {
             <Category></Category>
             <Manubanner></Manubanner>
             <PopularManu></PopularManu>
+            <ContactUs></ContactUs>
         </div>
     );
 };

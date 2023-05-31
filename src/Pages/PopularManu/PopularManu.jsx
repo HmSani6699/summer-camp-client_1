@@ -16,7 +16,7 @@ const PopularManu = () => {
 
 
     return (
-        <section>
+        <section className=" max-w-6xl mx-auto">
             <SectionTitle
                 hedding={'FROM OUR MENU'}
                 subHadding={'---Popular items---'}

@@ -4,7 +4,7 @@ import chefImg from '../../../assets/home/chef-service.jpg'
 
 const Manubanner = () => {
     return (
-        <div className="hero min-h-screen mb-20" style={{ backgroundImage: `url(${chefImg})` }}>
+        <div className="hero min-h-screen mb-20 max-w-6xl mx-auto" style={{ backgroundImage: `url(${chefImg})` }}>
             <div className="hero-content text-center  text-neutral-content  bg-white w-5/6">
                 <div className="max-w-md text-black">
                     <h1 className="mb-5 text-5xl font-bold">Bistro Boss</h1>
