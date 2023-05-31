@@ -1,3 +1,4 @@
+import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -16,6 +17,11 @@ const Footer = () => {
                     <div className="text-white space-y-2">
                         <h2 className="text-2xl font-bold">Follow US</h2>
                         <p>Join us on social media</p>
+                        <div className='flex items-center justify-center gap-3 '>
+                            <FaFacebookF className='text-2xl'></FaFacebookF>
+                            <FaInstagram className='text-2xl'></FaInstagram>
+                            <FaTwitter className='text-2xl'></FaTwitter>
+                        </div>
                     </div>
                 </div>
             </div>
