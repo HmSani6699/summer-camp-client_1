@@ -8,7 +8,7 @@ const ManuItem = ({item}) => {
                 <h2 className="text-2xl">{name}------------</h2>
                 <p>{recipe}</p>
             </div>
-            <p className="text-[#BB8506]">${price}</p>
+            <p className="text-[#BB8506] font-bold">${price}</p>
         </div>
     );
 };
