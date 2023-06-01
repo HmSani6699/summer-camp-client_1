@@ -10,8 +10,9 @@ import OrderTab from "./OrderTab/OrderTab";
 
 const Order = () => {
     const [tabIndex, setTabIndex] = useState(0);
-
+    const [activ, setActiv] = useState('salat');
     const [manu] = useManu();
+
     const drinks = manu?.filter(item => item.category === 'drinks');
     const dessert = manu?.filter(item => item.category === 'dessert');
     const pizza = manu?.filter(item => item.category === 'pizza');
@@ -22,19 +23,29 @@ const Order = () => {
         <div>
             <Helmet><title>Bistro boss | Order</title></Helmet>
             <ManuCover
-                coberImg={orderBannerImg}
+                coverImg={orderBannerImg}
                 title='OUR MENU'
                 description='Would you like to try a dish'
                 titleUpperCatch='titleUpperCatch'
             ></ManuCover>
 
-            <Tabs className='mb-20' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                <TabList className='text-center'>
-                    <Tab>Salad</Tab>
-                    <Tab>Pizza</Tab>
-                    <Tab>Soups</Tab>
-                    <Tab>Desserts</Tab>
-                    <Tab>Drinks</Tab>
+            <Tabs className='mb-20 mt-24' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+                <TabList className='text-center mb-4 font-semibold'>
+                    <Tab>
+                        <button className={activ==='salat'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('salat')}>Salat</button>
+                    </Tab>
+                    <Tab>
+                        <button className={activ==='pizza'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('pizza')}>Pizza</button>
+                    </Tab>
+                    <Tab>
+                        <button className={activ==='soup'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('soup')}>Soup</button>
+                    </Tab>
+                    <Tab>
+                        <button className={activ==='desseret'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('desseret')}>Desseret</button>
+                    </Tab>
+                    <Tab>
+                        <button className={activ==='drink'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('drink')}>Drinks</button>
+                    </Tab>
                 </TabList>
                 <TabPanel>
                     <OrderTab items={salad}></OrderTab>
