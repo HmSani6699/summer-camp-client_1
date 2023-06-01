@@ -5,7 +5,7 @@ const ManuItem = ({item}) => {
         <div className="flex space-x-4">
             <img style={{borderRadius:'0px 200px 200px 200px'}} className="w-[100px] h-[100] border-4 border-yellow-500" src={image} alt="" />
             <div>
-                <h2 className="text-2xl">{name}------------</h2>
+                <h2 className="text-2xl">{name}----------</h2>
                 <p>{recipe}</p>
             </div>
             <p className="text-[#BB8506] font-bold">${price}</p>

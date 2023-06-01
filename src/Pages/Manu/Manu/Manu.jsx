@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet';
 import ManuCover from '../../Shared/ManuCover/ManuCover';
-import PopularManu from '../../PopularManu/PopularManu';
 
 import coberImg1 from '../../../assets/menu/banner3.jpg';
 import coberImg2 from '../../../assets/menu/dessert-bg.jpeg';
@@ -16,6 +15,11 @@ import useManu from '../../../hooks/useManu';
 const Manu = () => {
     const [manu]= useManu();
     const offered = manu?.filter(item=>item.category==='offered');
+    const dessert = manu?.filter(item=>item.category==='dessert');
+    const pizza = manu?.filter(item=>item.category==='pizza');
+    const salad = manu?.filter(item=>item.category==='salad');
+    const soup = manu?.filter(item=>item.category==='soup');
+
     return (
         <div>
             <Helmet><title>Bistro boss | Manu</title></Helmet>
@@ -45,7 +49,7 @@ const Manu = () => {
             ></ManuCover>
             <div className='my-24'>
                 {/* Desserts  Manu */}
-                <PopularManu></PopularManu>
+                <ManuCategory offered={dessert}></ManuCategory>
                 <div className='flex justify-center'>
                     <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
                 </div>
@@ -58,7 +62,7 @@ const Manu = () => {
                 description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>
             <div className='my-24'>
-                <PopularManu></PopularManu>
+            <ManuCategory offered={pizza}></ManuCategory>
                 <div className='flex justify-center'>
                     <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
                 </div>
@@ -71,7 +75,7 @@ const Manu = () => {
                 description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>
             <div className='my-24'>
-                <PopularManu></PopularManu>
+            <ManuCategory offered={salad}></ManuCategory>
                 <div className='flex justify-center'>
                     <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
                 </div>
@@ -84,7 +88,7 @@ const Manu = () => {
                 description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>
             <div className='my-24'>
-                <PopularManu></PopularManu>
+            <ManuCategory offered={soup}></ManuCategory>
                 <div className='flex justify-center'>
                     <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
                 </div>
