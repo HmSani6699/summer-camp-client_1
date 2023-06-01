@@ -3,7 +3,7 @@ import ManuItem from "../Shared/ManuItem/ManuItem";
 
 const PopularManu = () => {
     const [manu] = useManu();
-    const popularManu = manu?.filter(item=>item.category==='popular')
+    const popularManu = manu?.filter(item=>item.category==='popular');
 
     return (
         <section className=" max-w-6xl mx-auto">

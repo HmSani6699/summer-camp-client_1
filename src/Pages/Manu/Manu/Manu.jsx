@@ -8,10 +8,14 @@ import coberImg3 from '../../../assets/menu/pizza-bg.jpg';
 import coberImg4 from '../../../assets/menu/salad-bg.jpg';
 import coberImg5 from '../../../assets/menu/soup-bg.jpg';
 import SectionTitle from '../../../component/SectionTitle/SectionTitle';
+import ManuCategory from '../ManuCategory/ManuCategory';
+import useManu from '../../../hooks/useManu';
 
 
 
 const Manu = () => {
+    const [manu]= useManu();
+    const offered = manu?.filter(item=>item.category==='offered');
     return (
         <div>
             <Helmet><title>Bistro boss | Manu</title></Helmet>
@@ -26,19 +30,21 @@ const Manu = () => {
                 subHadding={'---Do not miss---'}
             ></SectionTitle>
             <div className='my-24'>
-                <PopularManu></PopularManu>
+                {/* Offerd manu */}
+                <ManuCategory offered={offered}></ManuCategory>
                 <div className='flex justify-center'>
                     <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
                 </div>
             </div>
 
-            {/* Desserts  Manu */}
+            {/* Desserts  Manu cover*/}
             <ManuCover
                 coberImg={coberImg2}
                 title='Desserts'
                 description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>
             <div className='my-24'>
+                {/* Desserts  Manu */}
                 <PopularManu></PopularManu>
                 <div className='flex justify-center'>
                     <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>

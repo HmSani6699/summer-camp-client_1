@@ -3,7 +3,7 @@ const ManuItem = ({item}) => {
     const {name,image,price,recipe}=item;
     return (
         <div className="flex space-x-4">
-            <img style={{borderRadius:'0px 200px 200px 200px'}} className="w-[100px] h-[100] " src={image} alt="" />
+            <img style={{borderRadius:'0px 200px 200px 200px'}} className="w-[100px] h-[100] border-4 border-yellow-500" src={image} alt="" />
             <div>
                 <h2 className="text-2xl">{name}------------</h2>
                 <p>{recipe}</p>
