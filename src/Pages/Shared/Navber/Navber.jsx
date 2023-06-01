@@ -4,7 +4,6 @@ const Navber = () => {
 
     const navLink = <>
         <li><Link to='/'>Home</Link></li>
-        <li><a>DASHBOARD</a></li>
         <li><Link to='/manu'>Our Menu</Link></li>
         <li><Link to='/order'>Order</Link></li>
     </>
@@ -21,7 +20,7 @@ const Navber = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <span><h2 className="font-bold text-2xl ">BISTRO BOSS</h2><p className="">Restaurant</p></span>
+                    <span><h2 className="font-bold text-2xl ">BISTRO BOSS</h2><p style={{letterSpacing: '0.38em'}} className="tracking-wider">Restaurant</p></span>
                 </div>
                 <div className="navbar-end  w-full">
                     <div className="navbar-end hidden lg:flex">
