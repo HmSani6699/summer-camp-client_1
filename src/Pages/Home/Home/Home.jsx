@@ -6,10 +6,13 @@ import Featured from "../Featured/Featured";
 import FoodCards from "../FoodCards/FoodCards";
 import Manubanner from "../ManuBanner/Manubanner";
 import Testimonials from "../Testimonials/Testimonials";
+import {Helmet} from "react-helmet";
+
 
 const Home = () => {
     return (
         <div>
+             <Helmet><title>Bistro boss | Home</title></Helmet>
             <Banner></Banner>
             <Category></Category>
             <Manubanner></Manubanner>
