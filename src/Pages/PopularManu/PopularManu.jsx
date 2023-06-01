@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../../component/SectionTitle/SectionTitle";
 import ManuItem from "../Shared/ManuItem/ManuItem";
 
 const PopularManu = () => {
@@ -17,10 +16,6 @@ const PopularManu = () => {
 
     return (
         <section className=" max-w-6xl mx-auto">
-            <SectionTitle
-                hedding={'FROM OUR MENU'}
-                subHadding={'---Popular items---'}
-            ></SectionTitle>
             <div className="mt-12 mb-12 grid md:grid-cols-2 gap-8">
                 {
                     manu?.map(item=><ManuItem
