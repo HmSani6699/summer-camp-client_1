@@ -1,4 +1,4 @@
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import ManuCover from "../Shared/ManuCover/ManuCover";
 import PopularManu from "../PopularManu/PopularManu";
 
@@ -16,27 +16,37 @@ const Manu = () => {
             <Helmet><title>Bistro boss | Manu</title></Helmet>
 
             <ManuCover
-            coberImg={coberImg1}
+                coberImg={coberImg1}
+                title='OUR MENU'
+                description='Would you like to try a dish'
             ></ManuCover>
             <PopularManu></PopularManu>
 
             <ManuCover
-            coberImg={coberImg2}
+                coberImg={coberImg2}
+                title='Desserts'
+                description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>
             <PopularManu></PopularManu>
 
             <ManuCover
-            coberImg={coberImg3}
+                coberImg={coberImg3}
+                title='pizza'
+                description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>
             <PopularManu></PopularManu>
 
             <ManuCover
-            coberImg={coberImg4}
+                coberImg={coberImg4}
+                title='salads'
+                description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>
             <PopularManu></PopularManu>
 
             <ManuCover
-            coberImg={coberImg5}
+                coberImg={coberImg5}
+                title='soups'
+                description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>
             <PopularManu></PopularManu>
         </div>
