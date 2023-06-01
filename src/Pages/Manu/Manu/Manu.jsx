@@ -28,6 +28,7 @@ const Manu = () => {
                 coberImg={coberImg1}
                 title='OUR MENU'
                 description='Would you like to try a dish'
+                titleUpperCatch='titleUpperCatch'
             ></ManuCover>
             <SectionTitle
                 hedding={'TODAYS OFFER'}
