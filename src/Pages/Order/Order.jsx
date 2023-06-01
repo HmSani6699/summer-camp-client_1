@@ -4,12 +4,18 @@ import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import useManu from "../../hooks/useManu";
 
 
 const Order = () => {
     const [tabIndex, setTabIndex] = useState(0);
-    console.log(tabIndex);
 
+    const [manu]= useManu();
+    const offered = manu?.filter(item=>item.category==='offered');
+    const dessert = manu?.filter(item=>item.category==='dessert');
+    const pizza = manu?.filter(item=>item.category==='pizza');
+    const salad = manu?.filter(item=>item.category==='salad');
+    const soup = manu?.filter(item=>item.category==='soup');
     
     return (
         <div>
