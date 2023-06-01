@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 
 const Navber = () => {
 
     const navLink = <>
-        <li><a>Home</a></li>
+        <li><Link to='/'>Home</Link></li>
         <li><a>DASHBOARD</a></li>
-        <li><a>Our Menu</a></li>
+        <li><Link to='/manu'>Our Menu</Link></li>
         <li><a>Our Shop</a></li>
     </>
 
