@@ -3,7 +3,7 @@ import {
   } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
-import Manu from "../Pages/Manu/Manu";
+import Manu from "../Pages/Manu/Manu/Manu";
 
   export const router = createBrowserRouter([
     {

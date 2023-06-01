@@ -1,12 +1,12 @@
-import { Helmet } from "react-helmet";
-import ManuCover from "../Shared/ManuCover/ManuCover";
-import PopularManu from "../PopularManu/PopularManu";
+import { Helmet } from 'react-helmet';
+import ManuCover from '../../Shared/ManuCover/ManuCover';
+import PopularManu from '../../PopularManu/PopularManu';
 
-import coberImg1 from '../../assets/menu/banner3.jpg';
-import coberImg2 from '../../assets/menu/dessert-bg.jpeg';
-import coberImg3 from '../../assets/menu/pizza-bg.jpg';
-import coberImg4 from '../../assets/menu/salad-bg.jpg';
-import coberImg5 from '../../assets/menu/soup-bg.jpg';
+import coberImg1 from '../../../assets/menu/dessert-bg.jpeg';
+import coberImg2 from '../../../assets/menu/dessert-bg.jpeg';
+import coberImg3 from '../../../assets/menu/pizza-bg.jpg';
+import coberImg4 from '../../../assets/menu/salad-bg.jpg';
+import coberImg5 from '../../../assets/menu/soup-bg.jpg';
 
 
 
