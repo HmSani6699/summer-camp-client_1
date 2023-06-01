@@ -20,6 +20,10 @@ import Order from "../Pages/Order/Order";
           element:<Manu></Manu>
         },
         {
+          path:'/order',
+          element:<Order></Order>
+        },
+        {
           path:'/order/:category',
           element:<Order></Order>
         }

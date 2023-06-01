@@ -28,13 +28,13 @@ const Manu = () => {
             {/* Ofered manu */}
             <ManuCategory items={offered} ></ManuCategory>
             {/* dessert manu */}
-            <ManuCategory items={dessert} coverImg={coberImg2} title={'dessert'} ></ManuCategory>
+            <ManuCategory items={dessert} coverImg={coberImg2} subTitle={'Dessert'} title={'dessert'} ></ManuCategory>
             {/* pizza manu */}
-            <ManuCategory items={pizza} coverImg={coberImg3} title={'pizza'}></ManuCategory>
+            <ManuCategory items={pizza} coverImg={coberImg3} subTitle={'Pizza'} title={'pizza'}></ManuCategory>
             {/* salad manu */}
-            <ManuCategory items={salad} coverImg={coberImg4} title={'salad'}></ManuCategory>
+            <ManuCategory items={salad} coverImg={coberImg4} subTitle={'Salad'} title={'salad'}></ManuCategory>
             {/* soup manu */}
-            <ManuCategory items={soup} coverImg={coberImg5} title={'soup'}></ManuCategory>
+            <ManuCategory items={soup} coverImg={coberImg5} subTitle={'Soup'} title={'soup'}></ManuCategory>
         </div>
     );
 };

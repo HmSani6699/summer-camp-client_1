@@ -6,13 +6,16 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useManu from "../../hooks/useManu";
 import OrderTab from "./OrderTab/OrderTab";
+import { useParams } from "react-router-dom";
 
 
 const Order = () => {
-    const [tabIndex, setTabIndex] = useState(0);
-    const [activ, setActiv] = useState('salat');
+    const categories = ['salad','pizza','soup','dessert','drinks']
+    const {category} = useParams()
+    const initialIndex = categories.indexOf(category)
+    const [tabIndex, setTabIndex] = useState(initialIndex);
+    const [activ, setActiv] = useState(category);
     const [manu] = useManu();
-
     const drinks = manu?.filter(item => item.category === 'drinks');
     const dessert = manu?.filter(item => item.category === 'dessert');
     const pizza = manu?.filter(item => item.category === 'pizza');
@@ -21,7 +24,7 @@ const Order = () => {
 
     return (
         <div>
-            <Helmet><title>Bistro boss | Order</title></Helmet>
+            <Helmet><title>Bistro boss | Order Food</title></Helmet>
             <ManuCover
                 coverImg={orderBannerImg}
                 title='OUR MENU'
@@ -32,7 +35,7 @@ const Order = () => {
             <Tabs className='mb-20 mt-24' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList className='text-center mb-4 font-semibold'>
                     <Tab>
-                        <button className={activ==='salat'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('salat')}>Salat</button>
+                        <button className={activ==='salad'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('salad')}>Salat</button>
                     </Tab>
                     <Tab>
                         <button className={activ==='pizza'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('pizza')}>Pizza</button>
@@ -41,11 +44,11 @@ const Order = () => {
                         <button className={activ==='soup'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('soup')}>Soup</button>
                     </Tab>
                     <Tab>
-                        <button className={activ==='desseret'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('desseret')}>Desseret</button>
+                        <button className={activ==='dessert'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('dessert')}>Dessert</button>
                     </Tab>
-                    <Tab>
+                    {/* <Tab>
                         <button className={activ==='drink'?'text-yellow-600  border-0 border-b-4 border-yellow-500':''} onClick={()=>setActiv('drink')}>Drinks</button>
-                    </Tab>
+                    </Tab> */}
                 </TabList>
                 <TabPanel>
                     <OrderTab items={salad}></OrderTab>

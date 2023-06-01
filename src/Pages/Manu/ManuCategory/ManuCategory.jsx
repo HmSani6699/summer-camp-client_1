@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 import ManuCover from "../../Shared/ManuCover/ManuCover";
 import ManuItem from "../../Shared/ManuItem/ManuItem";
 
-const ManuCategory = ({ items, coverImg, title }) => {
-    console.log(coverImg);
+const ManuCategory = ({ items, coverImg, title,subTitle }) => {
     return (
         <section className=" max-w-6xl mx-auto">
             {title && <ManuCover
                 coverImg={coverImg}
-                title={title}
+                title={subTitle}
                 description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             ></ManuCover>}
 
@@ -22,7 +21,7 @@ const ManuCategory = ({ items, coverImg, title }) => {
             </div>
 
             <div className='mb-20 flex justify-center'>
-                <Link to={`/order/:${title}`}>
+                <Link to={`/order/${title}`}>
                     <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button></Link>
             </div>
 
