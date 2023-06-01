@@ -13,87 +13,28 @@ import useManu from '../../../hooks/useManu';
 
 
 const Manu = () => {
-    const [manu]= useManu();
-    const offered = manu?.filter(item=>item.category==='offered');
-    const dessert = manu?.filter(item=>item.category==='dessert');
-    const pizza = manu?.filter(item=>item.category==='pizza');
-    const salad = manu?.filter(item=>item.category==='salad');
-    const soup = manu?.filter(item=>item.category==='soup');
+    const [manu] = useManu();
+    const offered = manu?.filter(item => item.category === 'offered');
+    const dessert = manu?.filter(item => item.category === 'dessert');
+    const pizza = manu?.filter(item => item.category === 'pizza');
+    const salad = manu?.filter(item => item.category === 'salad');
+    const soup = manu?.filter(item => item.category === 'soup');
 
     return (
         <div>
             <Helmet><title>Bistro boss | Manu</title></Helmet>
-            {/* Main  Manu */}
-            <ManuCover
-                coberImg={coberImg1}
-                title='OUR MENU'
-                description='Would you like to try a dish'
-                titleUpperCatch='titleUpperCatch'
-            ></ManuCover>
-            <SectionTitle
-                hedding={'TODAYS OFFER'}
-                subHadding={'---Do not miss---'}
-            ></SectionTitle>
-            <div className='my-24'>
-                {/* Offerd manu */}
-                <ManuCategory offered={offered}></ManuCategory>
-                <div className='flex justify-center'>
-                    <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
-                </div>
-            </div>
-
-            {/* Desserts  Manu cover*/}
-            <ManuCover
-                coberImg={coberImg2}
-                title='Desserts'
-                description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-            ></ManuCover>
-            <div className='my-24'>
-                {/* Desserts  Manu */}
-                <ManuCategory offered={dessert}></ManuCategory>
-                <div className='flex justify-center'>
-                    <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
-                </div>
-            </div>
-
-            {/* Pizza  Manu */}
-            <ManuCover
-                coberImg={coberImg3}
-                title='pizza'
-                description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-            ></ManuCover>
-            <div className='my-24'>
-            <ManuCategory offered={pizza}></ManuCategory>
-                <div className='flex justify-center'>
-                    <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
-                </div>
-            </div>
-
-            {/* Salads  Manu */}
-            <ManuCover
-                coberImg={coberImg4}
-                title='salads'
-                description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-            ></ManuCover>
-            <div className='my-24'>
-            <ManuCategory offered={salad}></ManuCategory>
-                <div className='flex justify-center'>
-                    <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
-                </div>
-            </div>
-
-            {/* Soups  Manu */}
-            <ManuCover
-                coberImg={coberImg5}
-                title='soups'
-                description='Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-            ></ManuCover>
-            <div className='my-24'>
-            <ManuCategory offered={soup}></ManuCategory>
-                <div className='flex justify-center'>
-                    <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-4 border-[#BB8506]">ORDER YOUR FAVOURITE FOOD</button>
-                </div>
-            </div>
+            <ManuCover coverImg={coberImg1} title={'OUR MENU'} description='Would you like to try a dish' titleUpperCatch='titleUpperCatch' ></ManuCover>
+            <SectionTitle hedding={'TODAY OFFER'} subHadding={'---Do not miss---'}></SectionTitle>
+            {/* Ofered manu */}
+            <ManuCategory items={offered} ></ManuCategory>
+            {/* dessert manu */}
+            <ManuCategory items={dessert} coverImg={coberImg2} title={'dessert'} ></ManuCategory>
+            {/* pizza manu */}
+            <ManuCategory items={pizza} coverImg={coberImg3} title={'pizza'}></ManuCategory>
+            {/* salad manu */}
+            <ManuCategory items={salad} coverImg={coberImg4} title={'salad'}></ManuCategory>
+            {/* soup manu */}
+            <ManuCategory items={soup} coverImg={coberImg5} title={'soup'}></ManuCategory>
         </div>
     );
 };
