@@ -4,16 +4,30 @@ import { Link } from "react-router-dom";
 import loginImg from '../../assets/others/authentication1.png';
 import bannerImg from '../../assets/others/authentication.png'
 import { Helmet } from "react-helmet";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Register = () => {
+    const {creatUser} = useContext(AuthContext)
+
+
     const handleFormSubmit = (event) => {
         event.preventDefault()
-
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        const name = form.name.value;
+        const photo = form.photo.value;
+        console.log(email, password,name,photo);
+
+        // Crest new user
+        creatUser(email,password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error=>console.log(error))
     }
     return (
         <div style={{ backgroundImage: `url(${bannerImg})` }} className="hero">
@@ -29,28 +43,28 @@ const Register = () => {
                             <form onSubmit={handleFormSubmit}>
                                 <div className="form-control">
                                     <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text" placeholder="name" name='name' className="input input-bordered" />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" placeholder="email" name='email' className="input input-bordered" />
+                                    <input type="email" placeholder="email" name='email' className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" placeholder="password" name='password' className="input input-bordered" />
-                                    <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forget password?</a>
-                                    </label>
+                                    <input type="password" placeholder="password" name='password' className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
-                                    <input type="text" name='password' className="input input-bordered" />
                                     <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Reload Captcha</a>
+                                        <span className="label-text">Photo url</span>
                                     </label>
-                                </div>
-                                <div className="form-control">
-                                    <input type="text" placeholder="Type here" name='password' className="input input-bordered" />
-                                </div>
+                                    <input type="text" placeholder="Photo url" name='photo' className="input input-bordered" />
+                                </div>                        
                                 <div className="form-control mt-6">
                                     <input type="submit" className="btn bg-[rgb(209,160,84)] mr-5" value="Sign up" />
                                 </div>
