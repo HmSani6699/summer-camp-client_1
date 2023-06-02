@@ -45,7 +45,7 @@ const Navber = () => {
                 {
                     user && <div className="avatar">
                         <div className="w-14 border-4 rounded-full">
-                            <img src={user.photoURL}/>
+                            <img title={user?.displayName} src={user?.photoURL}/>
                         </div>
                     </div>
                 }
