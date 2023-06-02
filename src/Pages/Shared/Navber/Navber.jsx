@@ -42,6 +42,13 @@ const Navber = () => {
                         </ul>
                     </div>
                 </div>
+                {
+                    user && <div className="avatar">
+                        <div className="w-14 border-4 rounded-full">
+                            <img src={user.photoURL}/>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );
