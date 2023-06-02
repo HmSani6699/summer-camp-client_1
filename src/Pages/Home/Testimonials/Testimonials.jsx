@@ -21,7 +21,6 @@ const Testimonials = () => {
             })
     }, []);
 
-    console.log(reviews);
     return (
         <section className="max-w-6xl mx-auto mb-28">
             <SectionTitle

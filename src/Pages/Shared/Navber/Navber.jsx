@@ -1,12 +1,24 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navber = () => {
+
+    const { user, logOutUser } = useContext(AuthContext)
+
+
+    const handleLogOutUser = () => {
+        logOutUser()
+    }
 
     const navLink = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/manu'>Our Menu</Link></li>
         <li><Link to='/order'>Order Food</Link></li>
-        <li><Link to='/login'>Login</Link></li>
+        {
+            user ? <li><button onClick={handleLogOutUser}>Log Out</button> </li> :
+                <li><Link to='/login'>Login</Link></li>
+        }
     </>
 
     return (
@@ -21,7 +33,7 @@ const Navber = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <span><h2 className="font-bold text-2xl ">BISTRO BOSS</h2><p style={{letterSpacing: '0.38em'}} className="tracking-wider">Restaurant</p></span>
+                    <span><h2 className="font-bold text-2xl ">BISTRO BOSS</h2><p style={{ letterSpacing: '0.38em' }} className="tracking-wider">Restaurant</p></span>
                 </div>
                 <div className="navbar-end  w-full">
                     <div className="navbar-end hidden lg:flex">
@@ -29,7 +41,6 @@ const Navber = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <a className="btn">Login</a>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-    const { signInuser } = useContext(AuthContext)
+    const { logInUser } = useContext(AuthContext)
     
 
     const [disable, setDisable] = useState(true);
@@ -29,14 +29,14 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        console.log(signInuser);
+        // console.log(logInUser);
         // Creat user
-        signInuser(email, password)
-            .the(result => {
-                const user = result.user;
-                console.log(user);
-            })
-            .catch(error => console.log(error))
+        logInUser(email,password)
+        .then(result=>{
+            const user= result.user;
+            console.log(user);
+        })
+        .catch(error=>console.log(error))
     }
 
     // Chapcha section
