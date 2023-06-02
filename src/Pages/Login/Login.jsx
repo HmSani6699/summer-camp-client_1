@@ -6,27 +6,40 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 import loginImg from '../../assets/others/authentication1.png';
 import bannerImg from '../../assets/others/authentication.png'
 import { Helmet } from "react-helmet";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-    const [disable, setDisable] = useState(true)
+    const { signInuser } = useContext(AuthContext)
+    
+
+    const [disable, setDisable] = useState(true);
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])
 
+    // Submit Form
     const handleFormSubmit = (event) => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        console.log(signInuser);
+        // Creat user
+        signInuser(email, password)
+            .the(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.log(error))
     }
 
-    // Chapcha sectionf
+    // Chapcha section
     const handleChpachaValidate = (event) => {
         console.log(typeof event.target.value);
         const typeValue = event.target.value;
