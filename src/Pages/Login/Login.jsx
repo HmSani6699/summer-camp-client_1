@@ -16,7 +16,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const { logInUser } = useContext(AuthContext)
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register,reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
     const from  = location.state?.from?.pathname || "/";
@@ -42,6 +42,7 @@ const Login = () => {
                     title: `{${error}}`,
                 })
             })
+            reset()
     };
 
     const [disable, setDisable] = useState(true);

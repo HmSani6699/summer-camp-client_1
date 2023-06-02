@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from 'react-icons/fa';
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -13,13 +14,20 @@ const Navber = () => {
         Swal.fire({
             icon: 'success',
             title: 'Log out Success full !!',
-          })
+        })
     }
 
     const navLink = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/manu'>Our Menu</Link></li>
         <li><Link to='/order'>Order Food</Link></li>
+
+        <li><Link to='/'>
+            <button className="btn">
+                <FaShoppingCart className="text-2xl"></FaShoppingCart>
+                <div className="badge ml-2 badge-secondary">+0</div>
+            </button>
+        </Link></li>
         {
             user ? <li><button onClick={handleLogOutUser}>Log Out</button> </li> :
                 <li><Link to='/login'>Login</Link></li>
@@ -40,8 +48,8 @@ const Navber = () => {
                     </div>
                     <span><h2 className="font-bold text-2xl ">BISTRO BOSS</h2><p style={{ letterSpacing: '0.38em' }} className="tracking-wider">Restaurant</p></span>
                 </div>
-                <div className="navbar-end  w-full">
-                    <div className="navbar-end hidden lg:flex">
+                <div className="ml-auto">
+                    <div className="hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             {navLink}
                         </ul>
@@ -50,7 +58,7 @@ const Navber = () => {
                 {
                     user && <div className="avatar">
                         <div className="w-14 border-4 rounded-full">
-                            <img title={user?.displayName} src={user?.photoURL}/>
+                            <img title={user?.displayName} src={user?.photoURL} />
                         </div>
                     </div>
                 }

@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 
 const Register = () => {
     const { creatUser, updateUserProfule } = useContext(AuthContext);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register,reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const from = '/'
 
@@ -42,6 +42,7 @@ const Register = () => {
                     title: `{${error}}`,
                 })
             })
+            reset()
     };
 
     return (
