@@ -1,0 +1,5 @@
+.loginBox{
+    box-shadow: 3px 3px 2px 6px rgba(204,200,200,0.54);
+-webkit-box-shadow: 3px 3px 2px 6px rgba(204,200,200,0.54);
+-moz-box-shadow: 3px 3px 2px 6px rgba(204,200,200,0.54);
+}
