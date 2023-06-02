@@ -11,33 +11,27 @@ import bannerImg from '../../assets/others/authentication.png'
 import { Helmet } from "react-helmet";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
     const { logInUser } = useContext(AuthContext)
-    
+
+    const { register, handleSubmit,formState: { errors } } = useForm();
+    const onSubmit = data => {
+        const {email,password}=data;
+        // Creat user
+        logInUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.log(error))
+    };
 
     const [disable, setDisable] = useState(true);
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])
-
-    // Submit Form
-    const handleFormSubmit = (event) => {
-        event.preventDefault()
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email, password);
-
-        // console.log(logInUser);
-        // Creat user
-        logInUser(email,password)
-        .then(result=>{
-            const user= result.user;
-            console.log(user);
-        })
-        .catch(error=>console.log(error))
-    }
 
     // Chapcha section
     const handleChpachaValidate = (event) => {
@@ -84,18 +78,20 @@ const Login = () => {
                     <div className="card w-1/2 flex-shrink-0   h-full">
                         <h2 className=' text-3xl font-bold text-center '>Login</h2>
                         <div className="p-8 ">
-                            <form onSubmit={handleFormSubmit}>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" placeholder="email" name='email' className="input input-bordered" />
+                                    <input type="text" placeholder="email" {...register("email", { required: true })} name='email' className="input input-bordered" />
+                                    {errors.email && <span className="text-red-600 mt-1 ml-3">Email field is required !</span>}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" placeholder="password" name='password' className="input input-bordered" />
+                                    <input type="password" placeholder="password" {...register("password", { required: true })} name='password' className="input input-bordered" />
+                                    {errors.password && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forget password?</a>
                                     </label>
