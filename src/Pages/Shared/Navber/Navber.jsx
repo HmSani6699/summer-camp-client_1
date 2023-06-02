@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navber = () => {
 
@@ -9,6 +10,10 @@ const Navber = () => {
 
     const handleLogOutUser = () => {
         logOutUser()
+        Swal.fire({
+            icon: 'success',
+            title: 'Log out',
+          })
     }
 
     const navLink = <>

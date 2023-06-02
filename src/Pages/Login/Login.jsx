@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const { logInUser } = useContext(AuthContext)
@@ -24,8 +25,18 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Log in Success full  !!',
+                  })
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error)
+                Swal.fire({
+                    icon: 'error',
+                    title: `{${error}}`,
+                })
+            })
     };
 
     const [disable, setDisable] = useState(true);
@@ -92,7 +103,7 @@ const Login = () => {
                                     </label>
                                     <input type="password" placeholder="password" {...register("password", {
                                         required: true,
-                                        pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/
+                                        pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}/
                                     })} name='password' className="input input-bordered" />
                                     {errors.password?.type === 'required' && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
                                     {errors.password?.type === 'pattern' && <p className="text-red-600 mt-1 ml-3">Password must have one Upper Catch and one Lower catch and one number and one Special character and Minimum six in length !</p>}
