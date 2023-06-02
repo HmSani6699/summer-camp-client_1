@@ -7,6 +7,7 @@ import Manu from "../Pages/Manu/Manu/Manu";
 import Order from "../Pages/Order/Order";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivetRoutes from "./PrivetRoutes";
 
   export const router = createBrowserRouter([
     {
@@ -23,7 +24,7 @@ import Register from "../Pages/Register/Register";
         },
         {
           path:'/order',
-          element:<Order></Order>
+          element:<PrivetRoutes><Order></Order></PrivetRoutes>
         },
         {
           path:'/order/:category',
