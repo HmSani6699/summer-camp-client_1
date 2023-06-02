@@ -12,7 +12,7 @@ const Navber = () => {
         logOutUser()
         Swal.fire({
             icon: 'success',
-            title: 'Log out',
+            title: 'Log out Success full !!',
           })
     }
 

@@ -1,5 +1,5 @@
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Login.css';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { ToastContainer, toast } from 'react-toastify';
@@ -16,8 +16,12 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const { logInUser } = useContext(AuthContext)
-
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from  = location.state?.from?.pathname || "/";
+
+
     const onSubmit = data => {
         const { email, password } = data;
         // Creat user
@@ -28,7 +32,8 @@ const Login = () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Log in Success full  !!',
-                  })
+                })
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error)
@@ -46,7 +51,6 @@ const Login = () => {
 
     // Chapcha section
     const handleChpachaValidate = (event) => {
-        console.log(typeof event.target.value);
         const typeValue = event.target.value;
         if (typeValue.length == 6) {
             if (validateCaptcha(typeValue)) {

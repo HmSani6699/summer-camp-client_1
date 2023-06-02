@@ -1,5 +1,5 @@
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginImg from '../../assets/others/authentication1.png';
 import bannerImg from '../../assets/others/authentication.png'
 import { Helmet } from "react-helmet";
@@ -12,11 +12,14 @@ import Swal from "sweetalert2";
 
 const Register = () => {
     const { creatUser, updateUserProfule } = useContext(AuthContext);
-
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => {
+    const navigate = useNavigate();
+    const from = '/'
 
-        const { email, password, name, photo } = data
+
+    const onSubmit = data => {
+        const { email, password, name, photo } = data;
+
         // Crest new user
         creatUser(email, password)
             .then(result => {
@@ -30,6 +33,7 @@ const Register = () => {
                     icon: 'success',
                     title: 'Registation Success full!',
                 })
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error)
