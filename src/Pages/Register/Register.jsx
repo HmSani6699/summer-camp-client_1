@@ -60,8 +60,12 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" placeholder="password" {...register("password",{ required: true })} name='password' className="input input-bordered" />
-                                    {errors.password && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
+                                    <input type="password" placeholder="password" {...register("password",{
+                                         required: true, 
+                                         pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/
+                                         })} name='password' className="input input-bordered" />
+                                    {errors.password?.type==='required' && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
+                                    {errors.password?.type === 'pattern' && <p className="text-red-600 mt-1 ml-3">Password must have one Upper Catch and one Lower catch and one number and one Special character and Minimum six in length !</p>}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
