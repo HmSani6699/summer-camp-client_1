@@ -1,25 +1,44 @@
 import { FaTrashAlt } from "react-icons/fa";
 import useCards from "../../../hooks/useCards";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
+import Swal from "sweetalert2";
 
 const MyCart = () => {
 
-    const [cart] = useCards()
-    console.log(cart);
+    const [cart,refetch] = useCards();
 
-    const sum = cart.reduce((a, b) => a + b?.price, 0)
+    const sum = cart?.reduce((a, b) => a + b?.price, 0)
 
 
 
     const handlaCartDelete = (id) => {
-        console.log(id);
-        fetch(`http://localhost:5000/cards?id=${id}`,{
-            method:"DELETE"
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/cards/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => {
+                        console.log(res);
+                        refetch()
+                        Swal.fire(
+                            'Deleted!',
+                            'Your item has been deleted.',
+                            'success'
+                        )
+                    })
+                    .catch(error => console.log(error))
+            }
         })
-        .then(res=>{
-            console.log(res); 
-        })
-        .catch(error=>console.log(error))
+
+
     }
 
 
