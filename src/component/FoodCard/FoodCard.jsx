@@ -29,13 +29,11 @@ const FoodCard = ({ item }) => {
                     // console.log(data);
 
                     if (data?.insertedId) {
+                        refetch() // Refatch the cart number in items to cart number
                         Swal.fire({
                             icon: 'success',
                             title: 'Card add success full !!',
                         })
-                        
-                        refetch()
-
                     }
 
                 })
