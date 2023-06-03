@@ -11,8 +11,8 @@ import Swal from "sweetalert2";
 
 
 const Register = () => {
-    const { creatUser, updateUserProfule,googleLogin } = useContext(AuthContext);
-    const { register,reset, handleSubmit, formState: { errors } } = useForm();
+    const { creatUser, updateUserProfule, googleLogin } = useContext(AuthContext);
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -28,12 +28,27 @@ const Register = () => {
                 console.log(user);
                 // update user profule
                 updateUserProfule(user, name, photo)
-                    .then(() => { })
+                    .then(() => {
+                        const loggedUser= {name:user?.displayName,email:user?.email}
+                        fetch(`http://localhost:5000/user`,{
+                            method:'POST',
+                            headers:{
+                                'content-type':'application/json'
+                            },
+                            body:JSON.stringify(loggedUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Registation Success full!',
+                                })
+
+                            })
+                    })
                     .catch(error => console.log(error))
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Registation Success full!',
-                })
+
                 navigate(from, { replace: true });
             })
             .catch(error => {
@@ -43,7 +58,7 @@ const Register = () => {
                     title: `{${error}}`,
                 })
             })
-            reset()
+        reset()
     };
 
 

@@ -22,7 +22,6 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
     const [disable, setDisable] = useState(true);
 
-    console.log(location.state?.from?.pathname );
     const onSubmit = data => {
         const { email, password } = data;
         // Creat user
