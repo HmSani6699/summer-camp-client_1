@@ -7,7 +7,8 @@ import Manu from "../Pages/Manu/Manu/Manu";
 import Order from "../Pages/Order/Order";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import PrivetRoutes from "./PrivetRoutes";
+import Dashboard from "../Layout/Dashboard";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 
   export const router = createBrowserRouter([
     {
@@ -22,10 +23,7 @@ import PrivetRoutes from "./PrivetRoutes";
           path:'/manu',
           element:<Manu></Manu>
         },
-        {
-          path:'/order',
-          element:<PrivetRoutes><Order></Order></PrivetRoutes>
-        },
+       
         {
           path:'/order/:category',
           element:<Order></Order>
@@ -40,4 +38,14 @@ import PrivetRoutes from "./PrivetRoutes";
         }
       ]
     },
+    {
+      path:'dashboard',
+      element:<Dashboard></Dashboard>,
+      children:[
+        {
+          path:'myCart',
+          element:<MyCart></MyCart>
+        }
+      ]
+    }
   ]);

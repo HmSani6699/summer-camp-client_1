@@ -20,9 +20,9 @@ const Navber = () => {
     const navLink = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/manu'>Our Menu</Link></li>
-        <li><Link to='/order'>Order Food</Link></li>
+        <li><Link to='/order/salad'>Order Food</Link></li>
 
-        <li><Link to='/'>
+        <li><Link to='dashboard/myCart'>
             <button className="btn bg-[#ccc] border-0 border-b-4 border-[#BB8506]">
                 <FaShoppingCart className="text-2xl"></FaShoppingCart>
                 <div className="badge ml-1 badge-secondary">+{cart?.length||0}</div>
