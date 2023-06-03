@@ -2,8 +2,8 @@ import { FadeLoader } from "react-spinners";
 
 const Spinner = () => {
     return (
-        <div>
-            <FadeLoader color="#36d7b7" />
+        <div className="w-full flex items-center justify-center h-screen">
+            <FadeLoader color="#BB8506" />
         </div>
     );
 };
