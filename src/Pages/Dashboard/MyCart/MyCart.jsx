@@ -7,8 +7,8 @@ const MyCart = () => {
     const [cart] = useCards()
     console.log(cart);
 
-
-    
+    const sum = cart.reduce((a, b) => a + b?.price, 0)
+  
 
     return (
         <div className="h-screen">
@@ -16,7 +16,7 @@ const MyCart = () => {
             <div className="w-[700px] p-7 bg-[#cccccc1f]">
                 <div className="lg:flex items-center justify-between mb-8">
                     <h2 className="text-2xl font-bold uppercase">Total orders: {cart?.length}</h2>
-                    <h2 className="text-2xl font-bold uppercase">total price: {cart?.length}</h2>
+                    <h2 className="text-2xl font-bold uppercase">total price: ${sum}</h2>
                     <button className="btn btn-sm bg-[#D1A054] border-0">PAY</button>
                 </div>
                 <table className="table lg:w-full">
