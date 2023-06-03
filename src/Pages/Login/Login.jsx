@@ -15,14 +15,14 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 const Login = () => {
-    const { logInUser } = useContext(AuthContext)
-    const { register,reset, handleSubmit, formState: { errors } } = useForm();
+    const { logInUser, googleLogin } = useContext(AuthContext)
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
-    const from  = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/";
     const [disable, setDisable] = useState(true);
 
-
+    console.log(location.state?.from?.pathname );
     const onSubmit = data => {
         const { email, password } = data;
         // Creat user
@@ -43,8 +43,14 @@ const Login = () => {
                     title: `{${error}}`,
                 })
             })
-            reset()
+        reset()
     };
+
+    // Google log in 
+    const handleGoogleLogin = () => {
+        googleLogin()
+        navigate(from, { replace: true });
+    }
 
 
     useEffect(() => {
@@ -134,7 +140,7 @@ const Login = () => {
                             <p className='text-center mt-6  text-[rgb(209,160,84)]'>New here?  <Link className='font-semibold' to='/register'>Create a New Account</Link></p>
                             <div className="divider">Or sign in with</div>
                             <div className='flex items-center justify-center gap-5 mt-6 '>
-                                <button className="btn btn-circle btn-outline"><FaGoogle></FaGoogle></button>
+                                <button onClick={handleGoogleLogin} className="btn btn-circle btn-outline"><FaGoogle></FaGoogle></button>
                                 <button className="btn btn-circle btn-outline"><FaFacebookF></FaFacebookF></button>
                             </div>
                         </div>

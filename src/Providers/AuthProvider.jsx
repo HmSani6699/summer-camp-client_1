@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../Firebase/Firebase";
 
 export const AuthContext = createContext(null);
@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
     // creat a new user //
     //----------------------//
     const creatUser = (email, password) => {
-        console.log(email,password);
+        console.log(email, password);
         setLoding(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -31,16 +31,26 @@ const AuthProvider = ({ children }) => {
 
 
     //--------------------//
-       // Log out user //
+    // Log out user //
     //--------------------//
-    const updateUserProfule=(user,name,photo)=>{
+    const updateUserProfule = (user, name, photo) => {
         return updateProfile(user, {
             displayName: name, photoURL: photo
-          })
+        })
     }
 
+
     //--------------------//
-       // Log out user //
+    // GOOGLE LOG IN USER //
+    //--------------------//
+    const googlePrivder = new GoogleAuthProvider()
+    const googleLogin = () => {
+        return signInWithPopup(auth, googlePrivder)
+    }
+
+
+    //--------------------//
+    // Log out user //
     //--------------------//
     const logOutUser = () => {
         setLoding(true)
@@ -53,20 +63,21 @@ const AuthProvider = ({ children }) => {
         creatUser,
         logInUser,
         updateUserProfule,
+        googleLogin,
         logOutUser
     }
 
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth,(user)=>{
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             setUser(user);
             console.log(user);
             setLoding(false)
-          })
+        })
 
-          return ()=>{
+        return () => {
             return unsubscribe()
-          }
+        }
     }, [])
 
 

@@ -9,6 +9,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import PrivetRoutes from "./PrivetRoutes";
 
   export const router = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ import MyCart from "../Pages/Dashboard/MyCart/MyCart";
        
         {
           path:'/order/:category',
-          element:<Order></Order>
+          element:<PrivetRoutes><Order></Order></PrivetRoutes>
         },
         {
           path:'/login',
@@ -44,7 +45,7 @@ import MyCart from "../Pages/Dashboard/MyCart/MyCart";
       children:[
         {
           path:'myCart',
-          element:<MyCart></MyCart>
+          element:<PrivetRoutes><MyCart></MyCart></PrivetRoutes>
         }
       ]
     }

@@ -1,5 +1,5 @@
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from '../../assets/others/authentication1.png';
 import bannerImg from '../../assets/others/authentication.png'
 import { Helmet } from "react-helmet";
@@ -11,10 +11,11 @@ import Swal from "sweetalert2";
 
 
 const Register = () => {
-    const { creatUser, updateUserProfule } = useContext(AuthContext);
+    const { creatUser, updateUserProfule,googleLogin } = useContext(AuthContext);
     const { register,reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
-    const from = '/'
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
 
     const onSubmit = data => {
@@ -44,6 +45,13 @@ const Register = () => {
             })
             reset()
     };
+
+
+    // Google log in 
+    const handleGoogleLogin = () => {
+        googleLogin()
+        navigate(from, { replace: true });
+    }
 
     return (
         <div style={{ backgroundImage: `url(${bannerImg})` }} className="hero">
@@ -96,7 +104,7 @@ const Register = () => {
                             <p className='text-center mt-6  text-[rgb(209,160,84)]'>NAlready registered? <Link className='font-semibold' to='/login'>Go to log in</Link></p>
                             <div className="divider">Or sign in with</div>
                             <div className='flex items-center justify-center gap-5 mt-6 '>
-                                <button className="btn btn-circle btn-outline"><FaGoogle></FaGoogle></button>
+                                <button onClick={handleGoogleLogin} className="btn btn-circle btn-outline"><FaGoogle></FaGoogle></button>
                                 <button className="btn btn-circle btn-outline"><FaFacebookF></FaFacebookF></button>
                             </div>
 
