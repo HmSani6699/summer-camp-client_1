@@ -65,7 +65,13 @@ const Register = () => {
     // Google log in 
     const handleGoogleLogin = () => {
         googleLogin()
-        navigate(from, { replace: true });
+        .then((result)=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            navigate(from, { replace: true });
+        })
+        .catch(error=>console.log(error))
+        
     }
 
     return (
