@@ -8,7 +8,6 @@ import useCards from "../../../hooks/useCards";
 const Navber = () => {
     const { user, logOutUser } = useContext(AuthContext);
     const [cart] = useCards();
-    
 
     const handleLogOutUser = () => {
         logOutUser()
@@ -26,7 +25,7 @@ const Navber = () => {
         <li><Link to='/'>
             <button className="btn bg-[#ccc] border-0 border-b-4 border-[#BB8506]">
                 <FaShoppingCart className="text-2xl"></FaShoppingCart>
-                <div className="badge ml-1 badge-secondary">+{cart?.lengthp}</div>
+                <div className="badge ml-1 badge-secondary">+{cart?.length||0}</div>
             </button>
         </Link></li>
         {
