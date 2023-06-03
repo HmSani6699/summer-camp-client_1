@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.drawer-side a.active {
+    color: white;
+}
+.drawer-side li:hover {
+    background-color: #a5a3a382;
+    border-radius: 10px;
+}
+
+.drawer-side a {
+    background-color: transparent;
+}

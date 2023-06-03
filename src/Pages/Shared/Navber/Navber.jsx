@@ -29,7 +29,7 @@ const Navber = () => {
             </button>
         </Link></li>
         {
-            user ? <li><button onClick={handleLogOutUser}>Log Out</button> </li> :
+            user ? <li ><button onClick={handleLogOutUser}>Log Out</button> </li> :
                 <li><Link to='/login'>Login</Link></li>
         }
     </>
