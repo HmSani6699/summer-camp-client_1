@@ -8,7 +8,20 @@ const MyCart = () => {
     console.log(cart);
 
     const sum = cart.reduce((a, b) => a + b?.price, 0)
-  
+
+
+
+    const handlaCartDelete = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/cards?id=${id}`,{
+            method:"DELETE"
+        })
+        .then(res=>{
+            console.log(res); 
+        })
+        .catch(error=>console.log(error))
+    }
+
 
     return (
         <div className="h-screen">
@@ -44,7 +57,7 @@ const MyCart = () => {
                                 <td><h2 className="font-semibold">{item.name}</h2></td>
                                 <td><p className="text-end">${item.price}</p></td>
                                 <th>
-                                    <button className="btn btn-circle h-3 bg-red-800 text-white">
+                                    <button onClick={() => handlaCartDelete(item._id)} className="btn btn-circle h-3 bg-red-800 text-white">
                                         <FaTrashAlt></FaTrashAlt>
                                     </button>
                                 </th>
