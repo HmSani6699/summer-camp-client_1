@@ -73,6 +73,7 @@ const AuthProvider = ({ children }) => {
             setUser(user);
             console.log(user);
             setLoding(false)
+            
         })
 
         return () => {
