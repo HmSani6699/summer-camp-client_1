@@ -29,13 +29,13 @@ const Register = () => {
                 // update user profule
                 updateUserProfule(user, name, photo)
                     .then(() => {
-                        const loggedUser= {name:user?.displayName,email:user?.email}
-                        fetch(`http://localhost:5000/user`,{
-                            method:'POST',
-                            headers:{
-                                'content-type':'application/json'
+                        const loggedUser = { name: user?.displayName, email: user?.email }
+                        fetch(`http://localhost:5000/user`, {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
                             },
-                            body:JSON.stringify(loggedUser)
+                            body: JSON.stringify(loggedUser)
                         })
                             .then(res => res.json())
                             .then(data => {
@@ -65,13 +65,26 @@ const Register = () => {
     // Google log in 
     const handleGoogleLogin = () => {
         googleLogin()
-        .then((result)=>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            navigate(from, { replace: true });
-        })
-        .catch(error=>console.log(error))
-        
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                const loggedUser = { name: user?.displayName, email: user?.email }
+                fetch(`http://localhost:5000/user`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(loggedUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        navigate(from, { replace: true });
+                    })
+                    navigate(from, { replace: true });
+            })
+            .catch(error => console.log(error))
+
     }
 
     return (
