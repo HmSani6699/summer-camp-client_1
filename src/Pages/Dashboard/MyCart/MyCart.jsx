@@ -2,6 +2,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import useCards from "../../../hooks/useCards";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyCart = () => {
 
@@ -44,6 +45,7 @@ const MyCart = () => {
 
     return (
         <div className="h-screen">
+             <Helmet><title>Bistro boss | My card</title></Helmet>
             <SectionTitle hedding={'WANNA ADD MORE?'} subHadding={'---My Cart---'}></SectionTitle>
             <div className="w-[700px] p-7 bg-[#cccccc1f]">
                 <div className="lg:flex items-center justify-between mb-8">
