@@ -37,14 +37,16 @@ const AllUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users?.map((item, i) => <tr key={item._id}>
+                            users?.map((user, i) => <tr key={user._id}>
                                 <th>{i + 1}</th>
-                                <td><h2 className="font-semibold">{item.name}</h2></td>
-                                <td><h2 >{item.email}</h2></td>
+                                <td><h2 className="font-semibold">{user.name}</h2></td>
+                                <td><h2 >{user.email}</h2></td>
                                 <th>
-                                    <button className="btn btn-circle h-3 bg-[#D1A054] text-white">
-                                        <FaUsers className="text-2xl"></FaUsers>
-                                    </button>
+                                    {
+                                         user.rol==='admin'?'admin':<button className="btn btn-circle h-3 bg-[#D1A054] text-white">
+                                         <FaUsers className="text-2xl"></FaUsers>
+                                     </button>
+                                    }
                                 </th>
                                 <th>
                                     <button className="btn btn-circle h-3 bg-red-800 text-white">
