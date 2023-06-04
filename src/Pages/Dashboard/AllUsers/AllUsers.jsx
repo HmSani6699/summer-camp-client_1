@@ -43,9 +43,9 @@ const AllUsers = () => {
                                 <td><h2 >{user.email}</h2></td>
                                 <th>
                                     {
-                                         user.rol==='admin'?'admin':<button className="btn btn-circle h-3 bg-[#D1A054] text-white">
-                                         <FaUsers className="text-2xl"></FaUsers>
-                                     </button>
+                                        user.rol === 'admin' ? 'admin' : <button className="btn btn-circle h-3 bg-[#D1A054] text-white">
+                                            <FaUsers className="text-2xl"></FaUsers>
+                                        </button>
                                     }
                                 </th>
                                 <th>
