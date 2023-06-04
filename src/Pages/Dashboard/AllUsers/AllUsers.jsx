@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AllUsers = () => {
 
-    const { data: users ,refetch} = useQuery({
+    const { data: users, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const result = await fetch('http://localhost:5000/users');
@@ -22,15 +22,48 @@ const AllUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.modifiedCount){
+                if (data.modifiedCount) {
                     refetch()
                     Swal.fire({
                         icon: 'success',
-                        title:`${user.name} add to  an admin`,
+                        title: `${user.name} add to  an admin`,
                     })
                 }
             })
     }
+
+
+    // DELETE USER
+    const handleDeleteUser = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/users/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+                            refetch()
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+
+            }
+        })
+    }
+
 
     return (
         <div className="h-screen">
@@ -60,13 +93,13 @@ const AllUsers = () => {
                                 <td><h2 >{user.email}</h2></td>
                                 <th>
                                     {
-                                        user.rol === 'admin' ? <h2 className="text-[#D1A054] font-semibold">Admin</h2>: <button onClick={() => handleMackAdmin(user)} className="btn btn-circle h-3 bg-[#D1A054] text-white">
+                                        user.rol === 'admin' ? <h2 className="text-[#D1A054] font-semibold">Admin</h2> : <button onClick={() => handleMackAdmin(user)} className="btn btn-circle h-3 bg-[#D1A054] text-white">
                                             <FaUsers className="text-2xl"></FaUsers>
                                         </button>
                                     }
                                 </th>
                                 <th>
-                                    <button className="btn btn-circle h-3 bg-red-800 text-white">
+                                    <button onClick={() => handleDeleteUser(user._id)} className="btn btn-circle h-3 bg-red-800 text-white">
                                         <FaTrashAlt className="text-1xl"></FaTrashAlt>
                                     </button>
                                 </th>
