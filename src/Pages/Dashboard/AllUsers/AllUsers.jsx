@@ -2,10 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
 
-    const { data: users } = useQuery({
+    const { data: users ,refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const result = await fetch('http://localhost:5000/users');
@@ -21,7 +22,13 @@ const AllUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if(data.modifiedCount){
+                    refetch()
+                    Swal.fire({
+                        icon: 'success',
+                        title:`${user.name} add to  an admin`,
+                    })
+                }
             })
     }
 
@@ -53,7 +60,7 @@ const AllUsers = () => {
                                 <td><h2 >{user.email}</h2></td>
                                 <th>
                                     {
-                                        user.rol === 'admin' ? 'Admin' : <button onClick={() => handleMackAdmin(user)} className="btn btn-circle h-3 bg-[#D1A054] text-white">
+                                        user.rol === 'admin' ? <h2 className="text-[#D1A054] font-semibold">Admin</h2>: <button onClick={() => handleMackAdmin(user)} className="btn btn-circle h-3 bg-[#D1A054] text-white">
                                             <FaUsers className="text-2xl"></FaUsers>
                                         </button>
                                     }
