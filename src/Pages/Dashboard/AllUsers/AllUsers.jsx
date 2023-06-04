@@ -23,7 +23,7 @@ const AllUsers = () => {
             <SectionTitle hedding={'MANAGE ALL USERS'} subHadding={'---How many??---'}></SectionTitle>
             {/* ALL USERS  */}
             <div className="w-[700px] p-7 bg-[#cccccc1f]">
-                <h2 className="text-2xl font-bold mb-6 uppercase">Total orders: {users?.length}</h2>
+                <h2 className="text-2xl font-bold mb-6 uppercase">Total Users: {users?.length}</h2>
                 <table className="table lg:w-full">
                     {/* head */}
                     <thead>
