@@ -13,7 +13,17 @@ const AllUsers = () => {
         }
     })
 
-    console.log(users);
+
+    // UPDATE THE USER
+    const handleMackAdmin = user => {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    }
 
     return (
         <div className="h-screen">
@@ -43,7 +53,7 @@ const AllUsers = () => {
                                 <td><h2 >{user.email}</h2></td>
                                 <th>
                                     {
-                                        user.rol === 'admin' ? 'admin' : <button className="btn btn-circle h-3 bg-[#D1A054] text-white">
+                                        user.rol === 'admin' ? 'Admin' : <button onClick={() => handleMackAdmin(user)} className="btn btn-circle h-3 bg-[#D1A054] text-white">
                                             <FaUsers className="text-2xl"></FaUsers>
                                         </button>
                                     }
