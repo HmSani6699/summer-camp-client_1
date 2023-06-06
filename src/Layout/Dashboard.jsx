@@ -2,6 +2,7 @@ import { FaBook, FaCalendarAlt, FaEnvelope, FaHome, FaListUl, FaShoppingBag, FaS
 import { NavLink, Outlet } from "react-router-dom";
 import { CgMenu } from "react-icons/cg";
 import useCards from "../hooks/useCards";
+import useAdmin from "../hooks/useAdmin";
 
 
 const Dashboard = () => {
@@ -10,7 +11,7 @@ const Dashboard = () => {
 
 
     //TODO: load the server in admin data
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     return (
 
