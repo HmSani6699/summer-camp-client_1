@@ -23,7 +23,6 @@ const useCards = () => {
     //         return res.json()
     //     },
 
-        // enabled: !!user?.email,
         enabled:!loding && !!user?.email && !!localStorage.getItem('access-token'),
         queryFn: async () => {
             const res = await axiosSecure(`/carts?email=${user?.email}`);
