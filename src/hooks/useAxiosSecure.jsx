@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 
 
 const useAxiosSecure = () => {
-  const { logOut } = useAuth(); 
+  const { logOutUser } = useAuth(); 
   const navigate = useNavigate(); 
 
   const axiosSecure = axios.create({
@@ -25,13 +25,13 @@ const useAxiosSecure = () => {
       (response) => response,
       async (error) => {
         if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-          await logOut();
+          await logOutUser();
           navigate('/login');
         }
         return Promise.reject(error);
       }
     );
-  }, [logOut, navigate, axiosSecure]);
+  }, [logOutUser, navigate, axiosSecure]);
 
   return [axiosSecure];
 };
