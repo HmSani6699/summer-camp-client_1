@@ -3,11 +3,14 @@ import useManu from '../../../hooks/useManu';
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const ManageItems = () => {
     const [axiosSecure] = useAxiosSecure();
 const [menu, , refetch]=useManu()
+console.log(menu.length);
+
     const handleDelete = item => {
         Swal.fire({
             title: 'Are you sure?',
@@ -19,18 +22,15 @@ const [menu, , refetch]=useManu()
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-
                 axiosSecure.delete(`/menu/${item._id}`)
-                    .then(res => {
-                        console.log('deleted res', res.data);
-                        if (res.data.deletedCount > 0) {
-                           refetch()
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                        }
+                .then(res => {
+                        console.log(res);
+                        refetch()
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
                     })
 
             }
@@ -38,56 +38,50 @@ const [menu, , refetch]=useManu()
     }
 
     return (
-        <div className="w-full">
-            <SectionTitle hedding="Manage All Items" subHadding="Hurry up"></SectionTitle>
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Item</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Update</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            menu.map((item, index) => <tr key={item._id}>
-                                <td>
-                                    {index + 1}
-                                </td>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src={item.image} alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">{item.name}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    {item.category}
-                                </td>
-                                <td className="text-right">${item.price}</td>
-                                <td>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </td>
-                                <td>
-                                    <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
-                                </td>
-                            </tr>)
-                        }
+        <div className="h-screen">
+        <Helmet><title>Bistro boss | Manage Item</title></Helmet>
+       <SectionTitle hedding={'WANNA ADD MORE?'} subHadding={'---My Cart---'}></SectionTitle>
+       <div className="w-[700px] p-7 bg-[#cccccc1f]">
+           <div className="lg:flex items-center justify-between mb-8">
+               <h2 className="text-2xl font-bold uppercase">Total orders: {menu?.length}</h2>
+           </div>
+           <table className="table lg:w-full">
+               {/* head */}
+               <thead>
+                   <tr>
+                       <th className="bg-[#D1A054] text-white"> #</th>
+                       <th className="bg-[#D1A054] text-white">ITEM IMAGE</th>
+                       <th className="bg-[#D1A054] text-white">ITEM NAME</th>
+                       <th className="bg-[#D1A054] text-white">PRICE</th>
+                       <th className="bg-[#D1A054] text-white">ACTION</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   {
+                       menu?.map((item, i) => <tr key={item._id}>
+                           <th>{i + 1}</th>
+                           <td>
+                               <div className="avatar">
+                                   <div className="mask mask-squircle w-12 h-12">
+                                       <img src={item.image} alt="Avatar Tailwind CSS Component" />
+                                   </div>
+                               </div>
+                           </td>
+                           <td><h2 className="font-semibold">{item.name}</h2></td>
+                           <td><p className="text-end">${item.price}</p></td>
+                           <th>
+                               <button onClick={() => handleDelete(item)} className="btn btn-circle h-3 bg-red-800 text-white">
+                                   <FaTrashAlt></FaTrashAlt>
+                               </button>
+                           </th>
+                       </tr>)
+                   }
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
+               </tbody>
+
+           </table>
+       </div>
+   </div>
     );
 };
 
