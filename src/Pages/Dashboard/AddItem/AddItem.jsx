@@ -3,7 +3,8 @@ import Swal from "sweetalert2";
 import SectionTitle from '../../../component/SectionTitle/SectionTitle';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
-const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
+const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAT_TOKEN;
+console.log(img_hosting_token);
 
 const AddItem = () => {
     const [axiosSecure] = useAxiosSecure();
