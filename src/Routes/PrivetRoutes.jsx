@@ -1,13 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../Providers/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 import Spinner from "../Pages/Spinner/Spinner";
+import useAuth from "../hooks/useAuth";
 
 
 const PrivetRoutes = ({ children }) => {
-    const { user, loding } = useContext(AuthContext);
+    const { user, loding } = useAuth();
     const location = useLocation();
-
 
     if (loding) {
         return <Spinner></Spinner>
