@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useCards from "../../../hooks/useCards";
+import './Navber.css'
 
 const Navber = () => {
     const { user, logOutUser } = useContext(AuthContext);
