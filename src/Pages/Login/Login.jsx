@@ -52,7 +52,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 const loggedUser = { name: user?.displayName, email: user?.email }
-                fetch(`http://localhost:5000/user`, {
+                fetch(`https://bistro-boss-server-rust-tau.vercel.app/user`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -133,12 +133,10 @@ const Login = () => {
                                     </label>
                                     <input type="password" placeholder="password" {...register("password", {
                                         required: true,
-                                        // pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}/
+                                        pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}/
                                     })} name='password' className="input input-bordered" />
                                     {errors.password?.type === 'required' && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
-
-                                    {/* TODO: password  */}
-                                    {/* {errors.password?.type === 'pattern' && <p className="text-red-600 mt-1 ml-3">Password must have one Upper Catch and one Lower catch and one number and one Special character and Minimum six in length !</p>} */}
+                                    {errors.password?.type === 'pattern' && <p className="text-red-600 mt-1 ml-3">Password must have one Upper Catch and one Lower catch and one number and one Special character and Minimum six in length !</p>}
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forget password?</a>
                                     </label>
@@ -152,7 +150,7 @@ const Login = () => {
                                     <input type="text" onChange={handleChpachaValidate} placeholder="Type chapcha avobe here" name='chapcha' className="input input-bordered" />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input disabled={false} type="submit" className="btn bg-[rgb(209,160,84)] mr-5" value="Sign in" />
+                                    <input disabled={disable} type="submit" className="btn bg-[rgb(209,160,84)] mr-5" value="Sign in" />
                                 </div>
                             </form>
                             <p className='text-center mt-6  text-[rgb(209,160,84)]'>New here?  <Link className='font-semibold' to='/register'>Create a New Account</Link></p>

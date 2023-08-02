@@ -17,7 +17,7 @@ const FoodCard = ({ item }) => {
 
 
         if (user && user?.email) {
-            fetch('http://localhost:5000/cards', {
+            fetch('https://bistro-boss-server-rust-tau.vercel.app/cards', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

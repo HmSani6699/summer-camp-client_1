@@ -75,7 +75,7 @@ const AuthProvider = ({ children }) => {
             console.log(currentUser);
             
             if (currentUser?.email) {
-                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+                axios.post('https://bistro-boss-server-rust-tau.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         // console.log(data);
                         localStorage.setItem('access-token',data.data.token);
