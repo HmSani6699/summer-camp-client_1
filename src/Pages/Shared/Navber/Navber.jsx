@@ -25,7 +25,7 @@ const Navber = () => {
         <li><Link to='dashboard/home'>
             <button className="btn bg-[#ccc] border-0 border-b-4 border-[#BB8506]">
                 <FaShoppingCart className="text-2xl"></FaShoppingCart>
-                <div className="badge ml-1 badge-secondary">+{cart?.length||0}</div>
+                <div className="badge ml-1 badge-secondary">+{cart?.length || 0}</div>
             </button>
         </Link></li>
         {
