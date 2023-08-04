@@ -30,7 +30,7 @@ const Register = () => {
                 updateUserProfule(user, name, photo)
                     .then(() => {
                         const loggedUser = { name: user?.displayName, email: user?.email }
-                        fetch(`https://bistro-boss-server-rust-tau.vercel.app/user`, {
+                        fetch(`https://bistro-server-hmsani6699.vercel.app//user`, {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -69,7 +69,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 const loggedUser = { name: user?.displayName, email: user?.email }
-                fetch(`https://bistro-boss-server-rust-tau.vercel.app/user`, {
+                fetch(`https://bistro-server-hmsani6699.vercel.app//user`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

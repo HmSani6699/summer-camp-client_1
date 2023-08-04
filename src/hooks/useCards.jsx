@@ -15,7 +15,7 @@ const useCards = () => {
     //     queryKey: ['carts', user?.email],
     //     enabled:!!user?.email,
     //     queryFn: async () => {
-    //         const res = await fetch(`https://bistro-boss-server-rust-tau.vercel.app/carts?email=${user?.email}`, {
+    //         const res = await fetch(`https://bistro-server-hmsani6699.vercel.app//carts?email=${user?.email}`, {
     //             headers: {
     //                 authorization: `bearer ${token}`
     //             }
