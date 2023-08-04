@@ -52,7 +52,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 const loggedUser = { name: user?.displayName, email: user?.email }
-                fetch(`https://bistro-server-hmsani6699.vercel.app//user`, {
+                fetch(`https://bistro-server-hmsani6699.vercel.app/user`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
