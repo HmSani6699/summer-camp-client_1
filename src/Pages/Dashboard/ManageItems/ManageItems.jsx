@@ -38,7 +38,7 @@ const ManageItems = () => {
 
     return (
         <div className="h-screen">
-            <Helmet><title>Bistro boss | Manage Item</title></Helmet>
+            <Helmet><title>Foods web | Manage Item</title></Helmet>
             <SectionTitle hedding={'WANNA ADD MORE?'} subHadding={'---My Cart---'}></SectionTitle>
             <div className="w-[700px] p-7 bg-[#cccccc1f]">
                 <div className="lg:flex items-center justify-between mb-8">

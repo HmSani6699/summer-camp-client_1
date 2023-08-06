@@ -22,7 +22,7 @@ const Manu = () => {
 
     return (
         <div>
-            <Helmet><title>Bistro boss | Manu</title></Helmet>
+            <Helmet><title>Foods web | Manu</title></Helmet>
             <ManuCover coverImg={coberImg1} title={'OUR MENU'} description='Would you like to try a dish' titleUpperCatch='titleUpperCatch' ></ManuCover>
             <SectionTitle hedding={'TODAY OFFER'} subHadding={'---Do not miss---'}></SectionTitle>
             {/* Ofered manu */}

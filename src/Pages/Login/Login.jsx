@@ -110,7 +110,7 @@ const Login = () => {
     }
     return (
         <div style={{ backgroundImage: `url(${bannerImg})` }} className="hero">
-            <Helmet><title>Bistro boss | Login</title></Helmet>
+            <Helmet><title>Foods web | Login</title></Helmet>
             <div style={{ backgroundImage: `url(${bannerImg})` }} className=" loginBox border-2 my-10 ">
                 <div className="hero-content  flex-col lg:flex-row w-full">
                     <div className="text-center w-1/2 ">

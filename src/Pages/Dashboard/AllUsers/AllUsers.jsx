@@ -69,7 +69,7 @@ const [axiosSecure]=useAxiosSecure()
     return (
         <div className="h-screen">
             {/*  SECTION TITLE IN IFREME  */}
-            <Helmet><title>Bistro boss | All users</title></Helmet>
+            <Helmet><title>Foods web | All users</title></Helmet>
             {/*  SECTION TITLE  */}
             <SectionTitle hedding={'MANAGE ALL USERS'} subHadding={'---How many??---'}></SectionTitle>
             {/* ALL USERS  */}
