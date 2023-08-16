@@ -20,7 +20,7 @@ const FoodCards = () => {
             subHadding={'---Foods items---'}
             ></SectionTitle>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 mb-20 mt-10 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 mb-20 mt-10 gap-6 m-3">
                 {
                     foodItms?.map(item=><FoodCard
                     key={item._id}

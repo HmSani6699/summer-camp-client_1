@@ -13,11 +13,11 @@ const Featured = () => {
                 color={'featured'}
             ></SectionTitle>
 
-            <div className=' lg:flex px-24 pb-20 pt-12  gap-4 items-center justify-center '>
+            <div className=' lg:flex lg:px-24 px-2 pb-20 pt-12  gap-4 items-center justify-center '>
                 <div>
                     <img src={featuredImg} alt="" />
                 </div>
-                <div className='md:ml-10'>
+                <div className='md:ml-10 text-center mt-6'>
                     <h2 className='text-3xl font-semibold text-white'>March 20, 2023 <br />
                         WHERE CAN I GET SOME?</h2>
                     <p className='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
