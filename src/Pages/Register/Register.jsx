@@ -81,9 +81,9 @@ const Register = () => {
                         console.log(data);
                         navigate(from, { replace: true });
                     })
-                    navigate(from, { replace: true });
+                navigate(from, { replace: true });
             })
-            
+
             .catch(error => console.log(error))
 
     }
@@ -92,19 +92,19 @@ const Register = () => {
         <div style={{ backgroundImage: `url(${bannerImg})` }} className="hero">
             <Helmet><title>Foods web | Register</title></Helmet>
             <div style={{ backgroundImage: `url(${bannerImg})` }} className=" loginBox border-2 my-10 ">
-                <div className="hero-content  flex-col lg:flex-row w-full">
-                    <div className="text-center w-1/2 ">
-                        <img src={loginImg} alt="" />
+                <div className="lg:flex w-full">
+                    <div className="flex items-center lg:w-1/2 ">
+                        <img src={loginImg} alt="" className="w-full" />
                     </div>
-                    <div className="card w-1/2 flex-shrink-0   h-full">
+                    <div className="h-full lg:w-[50%]">
                         <h2 className=' text-3xl font-bold text-center '>Sign up</h2>
-                        <div className="p-8 ">
+                        <div className="p-6 w-full">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
-                                    <input type="text" placeholder="name" {...register("name", { required: true })} name='name' className="input input-bordered" />
+                                    <input type="text" placeholder="name" {...register("name", { required: true })} name='name' className="input input-bordered w-full" />
                                     {errors.name && <span className="text-red-600 mt-1 ml-3">Name field is required !</span>}
                                 </div>
                                 <div className="form-control">
@@ -133,7 +133,7 @@ const Register = () => {
                                     {errors.photo && <span className="text-red-600 mt-1 ml-3">Photo url field is required !</span>}
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input type="submit" className="btn bg-[rgb(209,160,84)] mr-5" value="Sign up" />
+                                    <input type="submit" className="btn bg-[rgb(209,160,84)] mr-5 w-full" value="Sign up" />
                                 </div>
                             </form>
                             <p className='text-center mt-6  text-[rgb(209,160,84)]'>NAlready registered? <Link className='font-semibold' to='/login'>Go to log in</Link></p>
