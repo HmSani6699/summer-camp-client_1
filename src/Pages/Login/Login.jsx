@@ -112,13 +112,13 @@ const Login = () => {
         <div style={{ backgroundImage: `url(${bannerImg})` }} className="hero">
             <Helmet><title>Foods web | Login</title></Helmet>
             <div style={{ backgroundImage: `url(${bannerImg})` }} className=" loginBox border-2 my-10 ">
-                <div className="hero-content  flex-col lg:flex-row w-full">
-                    <div className="text-center w-1/2 ">
+                <div className="lg:flex w-full">
+                    <div className="flex items-center lg:w-1/2">
                         <img src={loginImg} alt="" />
                     </div>
-                    <div className="card w-1/2 flex-shrink-0   h-full">
-                        <h2 className=' text-3xl font-bold text-center '>Login</h2>
-                        <div className="p-8 ">
+                    <div className="h-full lg:w-[50%]">
+                        <h2 className=' text-3xl font-bold text-center mt-6'>Login</h2>
+                        <div className="p-2 md:p-4 lg:p-6 w-full ">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control">
                                     <label className="label">
